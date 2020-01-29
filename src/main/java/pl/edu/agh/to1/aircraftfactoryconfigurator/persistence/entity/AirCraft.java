@@ -21,4 +21,7 @@ public class AirCraft {
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<AdditionalFeature> features;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 }
