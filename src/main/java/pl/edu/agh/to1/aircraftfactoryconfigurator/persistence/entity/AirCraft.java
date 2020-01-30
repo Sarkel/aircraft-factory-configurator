@@ -23,5 +23,5 @@ public class AirCraft {
     private List<AdditionalFeature> features;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private AppUser user;
 }
