@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.model.AdditionalFeatureOption;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.model.AircraftModelOption;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.ConfigurationOptionService;
 
@@ -23,5 +24,10 @@ public class ConfigurationOptionController {
     @GetMapping("/model")
     public List<AircraftModelOption> getModels() {
         return configurationService.getModelOptions();
+    }
+
+    @GetMapping("/features")
+    public List<AdditionalFeatureOption> getFeatures() {
+        return configurationService.getAdditionalFeatureOptions();
     }
 }

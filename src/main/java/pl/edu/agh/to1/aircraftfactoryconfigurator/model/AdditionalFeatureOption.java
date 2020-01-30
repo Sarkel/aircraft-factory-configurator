@@ -7,12 +7,12 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-public class AircraftModelOption {
+public class AdditionalFeatureOption {
     private Long id;
 
     private String name;
 
-    private Integer numberOfSeats;
+    private String description;
 
     private BigDecimal price;
 }
