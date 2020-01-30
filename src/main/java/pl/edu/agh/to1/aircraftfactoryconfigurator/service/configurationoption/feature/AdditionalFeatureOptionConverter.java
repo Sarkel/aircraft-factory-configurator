@@ -1,4 +1,4 @@
-package pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption;
+package pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.feature;
 
 import org.springframework.stereotype.Service;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.converter.DTOConverter;

@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.model.AdditionalFeatureOption;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.model.AircraftModelOption;
-import pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.ConfigurationOptionService;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.feature.AdditionalFeatureOptionService;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.model.ModelOptionService;
 
 import java.util.List;
 
@@ -14,20 +15,25 @@ import java.util.List;
 @RequestMapping("/configuration-options")
 public class ConfigurationOptionController {
 
-    private final ConfigurationOptionService configurationService;
+    private final ModelOptionService modelOptionService;
+    private final AdditionalFeatureOptionService additionalFeatureOptionService;
 
     @Autowired
-    public ConfigurationOptionController(ConfigurationOptionService configurationService) {
-        this.configurationService = configurationService;
+    public ConfigurationOptionController(
+            ModelOptionService modelOptionService,
+            AdditionalFeatureOptionService additionalFeatureOptionService
+    ) {
+        this.modelOptionService = modelOptionService;
+        this.additionalFeatureOptionService = additionalFeatureOptionService;
     }
 
     @GetMapping("/model")
     public List<AircraftModelOption> getModels() {
-        return configurationService.getModelOptions();
+        return modelOptionService.getModelOptions();
     }
 
     @GetMapping("/features")
     public List<AdditionalFeatureOption> getFeatures() {
-        return configurationService.getAdditionalFeatureOptions();
+        return additionalFeatureOptionService.getAdditionalFeatureOptions();
     }
 }
