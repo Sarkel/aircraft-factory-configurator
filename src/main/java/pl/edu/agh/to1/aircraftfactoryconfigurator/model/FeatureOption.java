@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-public class AdditionalFeatureOption {
+public class FeatureOption {
     private Long id;
 
     private String name;

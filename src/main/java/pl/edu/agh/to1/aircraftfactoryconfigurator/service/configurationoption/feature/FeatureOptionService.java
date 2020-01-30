@@ -2,20 +2,20 @@ package pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.f
 
 import org.springframework.stereotype.Service;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.converter.ListConverter;
-import pl.edu.agh.to1.aircraftfactoryconfigurator.model.AdditionalFeatureOption;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.model.FeatureOption;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.repository.AdditionalFeatureRepository;
 
 import java.util.List;
 
 @Service
-public class AdditionalFeatureOptionService {
+public class FeatureOptionService {
     private final AdditionalFeatureRepository additionalFeatureRepository;
-    private final AdditionalFeatureOptionConverter additionalFeatureOptionConverter;
+    private final FeatureOptionConverter additionalFeatureOptionConverter;
     private final ListConverter listConverter;
 
-    public AdditionalFeatureOptionService(
+    public FeatureOptionService(
             AdditionalFeatureRepository additionalFeatureRepository,
-            AdditionalFeatureOptionConverter additionalFeatureOptionConverter,
+            FeatureOptionConverter additionalFeatureOptionConverter,
             ListConverter listConverter
     ) {
         this.additionalFeatureRepository = additionalFeatureRepository;
@@ -23,7 +23,7 @@ public class AdditionalFeatureOptionService {
         this.listConverter = listConverter;
     }
 
-    public List<AdditionalFeatureOption> getAdditionalFeatureOptions() {
+    public List<FeatureOption> getAdditionalFeatureOptions() {
         return listConverter.convert(
                 additionalFeatureRepository.getAll(),
                 additionalFeatureOptionConverter

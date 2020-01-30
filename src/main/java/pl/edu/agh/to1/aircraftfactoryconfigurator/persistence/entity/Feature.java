@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Getter
-public class AdditionalFeature {
+public class Feature {
     @Id
     @GeneratedValue
     private Long id;

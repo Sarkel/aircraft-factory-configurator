@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-public class AircraftModelOption {
+public class ModelOption {
     private Long id;
 
     private String name;

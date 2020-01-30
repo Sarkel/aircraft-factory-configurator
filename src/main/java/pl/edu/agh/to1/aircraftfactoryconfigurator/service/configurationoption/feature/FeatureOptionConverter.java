@@ -2,14 +2,14 @@ package pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.f
 
 import org.springframework.stereotype.Service;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.converter.DTOConverter;
-import pl.edu.agh.to1.aircraftfactoryconfigurator.model.AdditionalFeatureOption;
-import pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.entity.AdditionalFeature;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.model.FeatureOption;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.entity.Feature;
 
 @Service
-public class AdditionalFeatureOptionConverter implements DTOConverter<AdditionalFeatureOption, AdditionalFeature> {
+public class FeatureOptionConverter implements DTOConverter<FeatureOption, Feature> {
     @Override
-    public AdditionalFeatureOption convert(AdditionalFeature source) {
-        return AdditionalFeatureOption.builder()
+    public FeatureOption convert(Feature source) {
+        return FeatureOption.builder()
                 .id(source.getId())
                 .description(source.getDescription())
                 .price(source.getPrice())

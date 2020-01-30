@@ -17,10 +17,10 @@ public class AirCraft {
     private Integer businessSeats;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private AirCraftModel model;
+    private Model model;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    private List<AdditionalFeature> features;
+    private List<Feature> features;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private AppUser user;
