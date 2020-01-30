@@ -7,6 +7,6 @@ import pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.entity.Model;
 import java.util.List;
 
 public interface ModelRepository extends JpaRepository<Model, Long> {
-    @Query("select acm from Model acm")
+    @Query("select m from Model m")
     List<Model> getAll();
 }

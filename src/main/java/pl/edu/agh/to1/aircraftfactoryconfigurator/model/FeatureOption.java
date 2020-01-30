@@ -8,11 +8,9 @@ import java.math.BigDecimal;
 @Data
 @Builder
 public class FeatureOption {
-    private Long id;
+    private final Long id;
 
-    private String name;
+    private final String description;
 
-    private String description;
-
-    private BigDecimal price;
+    private final BigDecimal price;
 }

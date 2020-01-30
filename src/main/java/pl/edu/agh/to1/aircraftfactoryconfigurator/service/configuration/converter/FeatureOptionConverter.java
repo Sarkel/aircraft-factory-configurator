@@ -1,19 +1,20 @@
-package pl.edu.agh.to1.aircraftfactoryconfigurator.service.configurationoption.feature;
+package pl.edu.agh.to1.aircraftfactoryconfigurator.service.configuration.converter;
 
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
-import pl.edu.agh.to1.aircraftfactoryconfigurator.converter.DTOConverter;
+import pl.edu.agh.to1.aircraftfactoryconfigurator.converter.DtoConverter;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.model.FeatureOption;
 import pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.entity.Feature;
 
 @Service
-public class FeatureOptionConverter implements DTOConverter<FeatureOption, Feature> {
+public class FeatureOptionConverter implements DtoConverter<Feature, FeatureOption> {
+
     @Override
-    public FeatureOption convert(Feature source) {
+    public FeatureOption convert(@NonNull Feature source) {
         return FeatureOption.builder()
-                .id(source.getId())
                 .description(source.getDescription())
+                .id(source.getId())
                 .price(source.getPrice())
-                .name(source.getName())
                 .build();
     }
 }

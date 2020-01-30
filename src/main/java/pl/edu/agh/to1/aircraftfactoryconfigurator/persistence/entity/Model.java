@@ -2,9 +2,10 @@ package pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.entity;
 
 import lombok.Getter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Getter
@@ -18,7 +19,4 @@ public class Model {
     private Integer numberOfSeats;
 
     private BigDecimal price;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<AirCraft> airCrafts;
 }

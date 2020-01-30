@@ -6,7 +6,7 @@ import pl.edu.agh.to1.aircraftfactoryconfigurator.persistence.entity.Feature;
 
 import java.util.List;
 
-public interface AdditionalFeatureRepository extends JpaRepository<Feature, Long> {
-    @Query("select af from Feature af")
+public interface FeatureRepository extends JpaRepository<Feature, Long> {
+    @Query("select f from Feature f")
     List<Feature> getAll();
 }
