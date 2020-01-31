@@ -1,0 +1,86 @@
+<div class="container-md">
+    <div ng-if="configurationOptions.modelOptions">
+        <h2>Models</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Number of seats</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="model in configurationOptions.modelOptions track by model.id"
+                    ng-click="selectModel(model)"
+                >
+                    <td>
+                        <input title="Selected feature"
+                               type="checkbox"
+                               ng-disabled="true"
+                               ng-model="model.selected"
+                        />
+                    </td>
+                    <td>{{model.name}}</td>
+                    <td>{{model.numberOfSeats | number : 0}}</td>
+                    <td>{{model.price | number  : 2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Seats <span ng-if="flags.selectedModel">({{flags.selectedModel.numberOfSeats | number : 0}})</span>:</h2>
+        <div class="form-group">
+            <label for="businessSeats">Business seats</label>
+            <input type="number"
+                   class="form-control"
+                   id="businessSeats"
+                   ng-model="flags.businessSeats"
+            />
+        </div>
+        <div class="form-group">
+            <label for="economicSeats">Economic seats</label>
+            <input type="number"
+                   class="form-control"
+                   id="economicSeats"
+                   ng-model="flags.economicSeats"
+            />
+        </div>
+    </div>
+
+    <div ng-if="configurationOptions.featureOptions">
+        <h2>Additional features</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    <input title="Select all feature"
+                           type="checkbox"
+                           ng-model="flags.allFeaturesSelected"
+                           ng-click="selectAllFeatures()"
+                    />
+                </th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="feature in configurationOptions.featureOptions track by feature.id">
+                <td>
+                    <input title="Selected feature"
+                           type="checkbox"
+                           ng-model="feature.selected"
+                           ng-click="selectFeature(feature)"
+                    />
+                </td>
+                <td>{{feature.description}}</td>
+                <td>PLN {{feature.price * flags.selectedModel.numberOfSeats | number  : 2 }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" ng-click="calculateConfiguration()">Generate overview</button>
+    </div>
+</div>

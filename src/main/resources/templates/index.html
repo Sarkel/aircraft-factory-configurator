@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Air Craft Factory Configurator</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
-<body>
-    Air Craft Factory Configurator
+<body ng-app="aircraftFactoryConfigurationApp">
+    <ng-view></ng-view>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="factory/SelectedConfigurationFactory.js"></script>
+
+    <script src="service/BackendApiService.js"></script>
+
+    <script src="controller/ConfiguratorController.js"></script>
+    <script src="controller/OverviewController.js"></script>
 </body>
 </html>

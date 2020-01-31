@@ -13,6 +13,7 @@ class AirCraftTotalPriceService {
         return features.stream()
                 .map(Feature::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .multiply(BigDecimal.valueOf(model.getNumberOfSeats()))
                 .add(model.getPrice());
     }
 }

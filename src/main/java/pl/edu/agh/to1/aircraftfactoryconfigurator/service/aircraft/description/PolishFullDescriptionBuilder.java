@@ -2,9 +2,11 @@ package pl.edu.agh.to1.aircraftfactoryconfigurator.service.aircraft.description;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -22,15 +24,14 @@ public class PolishFullDescriptionBuilder implements FullDescriptionBuilder {
         descriptionBuilder.append(" (klasa ekonomiczna - biznesowa), z ");
         descriptionBuilder.append(getFeatureDescription(descriptionDetails.getFeatureDescriptions()));
         descriptionBuilder.append(". Cena samolotu: ");
-        descriptionBuilder.append(
-                descriptionDetails
-                        .getPrice()
-                        .setScale(2, RoundingMode.HALF_EVEN)
-                        .toString()
-        );
+        descriptionBuilder.append(getFormattedTotal(descriptionDetails.getPrice()));
         descriptionBuilder.append(" zł.");
 
         return descriptionBuilder.toString();
+    }
+
+    private String getFormattedTotal(BigDecimal price) {
+        return String.format(Locale.ENGLISH, "%,.2f", price.setScale(2, RoundingMode.HALF_EVEN));
     }
 
     private String getFeatureDescription(Set<String> uniqueFeatureDescriptions) {
@@ -41,6 +42,6 @@ public class PolishFullDescriptionBuilder implements FullDescriptionBuilder {
                 featureDescriptions.stream()
                         .limit(featureDescriptions.size() - 1)
                         .collect(Collectors.toSet())
-        ) + featureDescriptions.get(featureDescriptions.size() - 1);
+        ) + " i " + featureDescriptions.get(featureDescriptions.size() - 1);
     }
 }

@@ -12,4 +12,10 @@ public class PageController {
     public String home() {
         return "index";
     }
+
+    @GetMapping("/configurator.html")
+    public String configurator() { return "configurator"; }
+
+    @GetMapping("/overview.html")
+    public String overview() { return "overview"; }
 }
